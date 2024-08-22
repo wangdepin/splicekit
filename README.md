@@ -23,7 +23,7 @@ Another suggestion is to install inside a virtual environment (using `virtualenv
 <summary>Installing splicekit directly from the GitHub repository</summary>
 
 ```
-pip install git+https://github.com/bedapub/splicekit.git@main
+pip install git+https://github.com/wangdepin/splicekit.git@main
 ```
 </details>
 
