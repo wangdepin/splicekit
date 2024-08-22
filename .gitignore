@@ -25,3 +25,4 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+01.human_SmartSeq2_data/

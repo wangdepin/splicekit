@@ -218,7 +218,7 @@ def write_edgeR_jobs():
 #SBATCH --error=logs/edgeR/{atype}/{comparison_name}.err          # Error file
 
 module load R
-{container} R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {filter_low} < {core_path}/comps_edgeR.R
+{container} /wrk-vakka/users/depinwan/conda/r_env_4.3.2/bin/R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {filter_low} < {core_path}/comps_edgeR.R
     """
 
     else:
@@ -233,10 +233,10 @@ module load R
 #BSUB -e logs/edgeR/{atype}/{comparison_name}.err # error file
 
 ml R
-{container} R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {filter_low} < {core_path}/comps_edgeR.R
+{container} /wrk-vakka/users/depinwan/conda/r_env_4.3.2/bin/R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {filter_low} < {core_path}/comps_edgeR.R
     """
 
-    job_sh_edgeR="""{container} R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {filter_low} < {core_path}/comps_edgeR.R"""
+    job_sh_edgeR="""{container} /wrk-vakka/users/depinwan/conda/r_env_4.3.2/bin/R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {filter_low} < {core_path}/comps_edgeR.R"""
     fsh_exons = open(f"jobs/edgeR/exons/process.sh", "wt")
     fsh_junctions = open(f"jobs/edgeR/junctions/process.sh", "wt")
     fsh_donor_anchors = open(f"jobs/edgeR/donor_anchors/process.sh", "wt")
@@ -332,7 +332,7 @@ def write_dexseq_jobs():
 #SBATCH --error=logs/dexseq/{atype}/{comparison_name}.err          # Error file
 
 module load R
-{container} R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {samples} < {core_path}/comps_dexseq.R
+{container} /wrk-vakka/users/depinwan/conda/r_env_4.3.2/bin/R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {samples} < {core_path}/comps_dexseq.R
     """
 
     else:
@@ -347,10 +347,10 @@ module load R
 #BSUB -e logs/dexseq/{atype}/{comparison_name}.err # error file
 
 ml R
-{container} R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {samples} < {core_path}/comps_dexseq.R
+{container} /wrk-vakka/users/depinwan/conda/r_env_4.3.2/bin/R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {samples} < {core_path}/comps_dexseq.R
     """
 
-    job_sh_dexseq="""{container} R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {samples} < {core_path}/comps_dexseq.R"""
+    job_sh_dexseq="""{container} /wrk-vakka/users/depinwan/conda/r_env_4.3.2/bin/R --no-save --args {input_folder} {atype} {control_name} {test_name} {comparison_name} {sample_membership} {samples} < {core_path}/comps_dexseq.R"""
     fsh_exons = open(f"jobs/dexseq/exons/process.sh", "wt")
     for (comparison_name, control_set, test_set, control_group_id, test_group_id) in annotation.comparisons:
         control_name = control_group_id
@@ -392,7 +392,7 @@ def write_mds_job():
 #SBATCH --error=logs/edgeR/mds/mds.err          # Error file
 
 module load R
-{container} R --no-save --args {input_folder} {sample_membership} {filter_low} < {core_path}/comps_edgeR_mds.R
+{container} /wrk-vakka/users/depinwan/conda/r_env_4.3.2/bin/R --no-save --args {input_folder} {sample_membership} {filter_low} < {core_path}/comps_edgeR_mds.R
     """
         
     else:
@@ -408,10 +408,10 @@ module load R
 #BSUB -e logs/edgeR/mds/mds.err # error file
 
 ml R
-{container} R --no-save --args {input_folder} {sample_membership} {filter_low} < {core_path}/comps_edgeR_mds.R
+{container} /wrk-vakka/users/depinwan/conda/r_env_4.3.2/bin/R --no-save --args {input_folder} {sample_membership} {filter_low} < {core_path}/comps_edgeR_mds.R
     """
 
-    job_sh_mds="""{container} R --no-save --args {input_folder} {sample_membership} {filter_low} < {core_path}/comps_edgeR_mds.R"""
+    job_sh_mds="""{container} /wrk-vakka/users/depinwan/conda/r_env_4.3.2/bin/R --no-save --args {input_folder} {sample_membership} {filter_low} < {core_path}/comps_edgeR_mds.R"""
     fsh_mds = open(f"jobs/edgeR/mds/process.sh", "wt")
     fout_mds = open(f"jobs/edgeR/mds/mds.job", "wt")
     sample_membership = {}
